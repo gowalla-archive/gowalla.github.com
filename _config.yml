@@ -41,7 +41,7 @@ team:
   -
     id: mt
     name: "Mattt Thompson"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "Hacker from the Rustbelt, living in Austin, TX. iOS and Ruby Developer at Gowalla"
     gowalla: mattt
     github: mattt
     twitter: mattt
