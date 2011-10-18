@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+{% include team.html %}
+
+<section role="articles">
+  <header>
+    <h1>Articles</h1>
+  </header>
+  <ul>
+    {% for post in site.posts %}
+      <li id="{{ post.id }}" class="post latest">
+        <a href="{{ post.url }}">
+          <h2>{{ post.title }}</h2>
+          <img src="/images/{{ post.author.id }}.jpg" alt="{{ post.author.name }}" />
+          <small>Written by {{ post.author.name }}</small>
+          <time class="pubdate" datetime="{{ post.date }}" pubdate>{{ post.date | date_to_string }}</time>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

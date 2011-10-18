@@ -1,0 +1,112 @@
+markdown: redcarpet
+permalink: pretty
+pygments: true
+
+title: Gowalla Engineering
+url: http://engineering.gowalla.com
+
+team:
+  -
+    id: ak
+    name: "Adam Keys"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: therealadam
+    github: therealadam
+    twitter: therealadam
+
+  -
+    id: jc
+    name: "John Critz"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: jc
+    github: critzjm
+    twitter: critzjm
+
+  -
+    id: ad
+    name: "Andrew Dupont"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: savetheclocktower
+    github: savetheclocktower
+    twitter: andrewdupont
+
+  -
+    id: am
+    name: "Adam McManus"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: amcmanus
+    github: amcmanus
+    twitter: amcmanus
+
+  -
+    id: mt
+    name: "Mattt Thompson"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: mattt
+    github: mattt
+    twitter: mattt
+
+  -
+    id: rs
+    name: "Richard Schneeman"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: schneems
+    github: schneems
+    twitter: schneems
+
+  -
+    id: kl
+    name: "Kevin Lord"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: lordkev
+    github: lordkev
+    twitter: lordkev
+
+  -
+    id: sco
+    name: "Scott Raymond"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: sco
+    github: sco
+    twitter: sco
+
+  -
+    id: soop
+    name: "Adam Michela"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: soopa
+    github: soopa
+    twitter: soopa
+
+  -
+    id: bf
+    name: "Brad Fults"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: h3h
+    github: h3h
+    twitter: h3h
+
+  -
+    id: pm
+    name: "Philip McAllister"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: mcalliph
+    github: mcalliph
+    twitter: mcalliph
+
+  -
+    id: tp
+    name: "Thorben Pimke"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: tprimke
+    github: thorbenprimke
+    twitter: tprimke
+
+  -
+    id: dy
+    name: "Drew Yeaton"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    gowalla: xeeton
+    github: drewyeaton
+    twitter: xeeton
+

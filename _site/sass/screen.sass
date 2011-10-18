@@ -1,0 +1,387 @@
+@import "compass/reset"
+
+*
+  margin: 0
+  padding: 0
+  list-style: none
+  border: none
+  text-decoration: none
+  font-size: 1em
+
+body
+  font: 16px / 25px Helvetica Neue, Arial, sans-serif
+  color: rgba(0, 0, 0, 0.75)
+  text-shadow: 0 1px 0 #fff
+  background: #ff6600 url(/images/body.png) no-repeat 0 0
+  background-size: 100% 500px
+
+a
+  color: #f60
+  text-decoration: underline
+  &:hover, &:focus
+    color: #c30
+  &:active
+    color: #300
+
+#wrapper
+  width: 950px
+  margin: 0 auto
+  padding: 0 25px
+
+header[role=masthead]
+  height: 150px
+  padding: 50px 0
+  h1 a
+    display: block
+    height: 150px
+    width: 0
+    padding-left: 350px
+    overflow: hidden
+    margin: 0 auto
+    background: url(/images/logo.png) no-repeat 0 -10px
+    position: relative
+    text-decoration: none
+    &:active
+      top: 1px
+    small
+      position: absolute
+      top: 90px
+      left: 0
+      text-align: center
+      width: 350px
+      font: italic 24px / 50px Georgia, serif
+      color: rgba(102, 51, 0, 0.75)
+      text-shadow: 0 1px 0 rgba(255, 255, 0, 0.5)
+    &:hover small, &:focus small
+      color: rgba(102, 51, 0, 1)
+  p
+    display: none
+
+section, article, p.back a
+  background: rgba(255, 255, 255, 0.9)
+  border: 1px solid #fff
+  margin-bottom: 25px
+  border-radius: 5px
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25)
+
+section
+  h1
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(209, 209, 209, 0)), to(rgba(0, 0, 0, 0.1)))
+    background-image: -moz-linear-gradient(270deg, rgba(209, 209, 209, 0) 0%, rgba(0, 0, 0, 0.1) 100%)
+    line-height: 50px
+    font-size: 18px
+    padding: 0 25px
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(0, 0, 0, 0.05)
+    margin: -1px -1px 0
+  &[role=team]
+    header
+      display: none
+    .default, .details li
+      background: rgba(0, 0, 0, 0.1)
+      padding: 25px
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset
+      margin: 0 -1px -1px
+      border-bottom-left-radius: 5px
+      border-bottom-right-radius: 5px
+      display: none
+    &.no .default
+      display: block
+      text-align: center
+      font-weight: bold
+      color: rgba(0, 0, 0, 0.5)
+    &.team-ak li#team-ak, &.team-jc li#team-jc, &.team-ad li#team-ad, &.team-am li#team-am, &.team-mt li#team-mt, &.team-rs li#team-rs, &.team-kl li#team-kl, &.team-sco li#team-sco, &.team-soop li#team-soop, &.team-bf li#team-bf, &.team-pm li#team-pm, &.team-tp li#team-tp, &.team-dy li#team-dy
+      display: block
+    .grid
+      margin: 24px 14px 25px 24px
+      height: 60px
+      li a
+        padding-right: 10px
+        float: left
+        -webkit-transition: opacity 0.25s linear
+      &:hover li a
+        opacity: .5
+      li
+        float: left
+        a
+          img
+            width: 60px
+            border-radius: 3px
+            position: relative
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.05) inset
+          &:hover img, &:focus img
+            width: 70px
+            top: -5px
+            left: -5px
+          &:hover, &:focus
+            opacity: 1
+            padding-right: 0
+    .details li
+      padding: 25px 300px 25px 150px
+      min-height: 100px
+      position: relative
+      img
+        position: absolute
+        top: 25px
+        left: 25px
+        border-radius: 3px
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.05) inset
+      h2
+        font-size: 16px
+      .body
+        padding: 0
+        p
+          padding: 0
+      dl
+        position: absolute
+        top: 25px
+        right: 25px
+        width: 248px
+        line-height: 49px
+        border: 1px solid rgba(0, 0, 0, 0.1)
+        border-radius: 3px
+        text-align: center
+        background: rgba(0, 0, 0, 0.05)
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.05) inset
+  &[role=about]
+    dl
+      position: absolute
+      top: 25px
+      right: 25px
+      width: 248px
+      line-height: 49px
+      border: 1px solid rgba(0, 0, 0, 0.1)
+      border-radius: 3px
+      text-align: center
+      background: rgba(0, 0, 0, 0.05)
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.05) inset
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.05) inset
+    img
+      margin: 0 25px 25px 0
+      border-radius: 3px
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.05) inset
+      float: left
+    dl
+      position: relative
+      top: auto
+      right: auto
+      margin: 0 25px 25px
+      overflow: hidden
+  &[role=team] .details li dl dt, &[role=about] dl dt
+    display: none
+  &[role=team] .details li dl dd, &[role=about] dl dd
+    width: 50%
+    float: left
+  &[role=team] .details li dl dd:first-of-type, &[role=about] dl dd:first-of-type
+    width: 100%
+    float: none
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+  &[role=team] .details li dl dd:last-of-type a, &[role=about] dl dd:last-of-type a
+    border-left: 1px solid rgba(0, 0, 0, 0.1)
+  &[role=team] .details li dl a, &[role=about] dl a
+    display: block
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.75)
+    font-weight: bold
+    font-size: 14px
+    text-transform: uppercase
+  &[role=team] .details li dl a
+    &:hover, &:focus
+      color: #000
+  &[role=articles] p a
+    &:hover, &:focus
+      color: #000
+  &[role=about]
+    dl a
+      &:hover, &:focus
+        color: #000
+    float: left
+    width: 298px
+  &[role=articles]
+    float: right
+    width: 623px
+
+article
+  float: right
+  width: 623px
+
+section[role=articles]
+  p a
+    display: block
+    background: rgba(0, 0, 0, 0.1)
+    padding: 25px
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset
+    margin: 0 -1px -1px
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+    color: rgba(0, 0, 0, 0.75)
+    font-weight: bold
+    text-decoration: none
+    &:hover, &:focus
+      background: rgba(0, 0, 0, 0.15)
+  ul
+    margin: 0 -1px
+
+article header
+  margin: 0 -1px
+
+section[role=articles] ul li a
+  display: block
+  min-height: 50px
+  padding: 25px 100px 25px 90px
+  position: relative
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+  color: rgba(0, 0, 0, 0.75)
+  text-decoration: none
+  font-size: 24px
+  font-weight: bold
+
+article header
+  display: block
+  min-height: 50px
+  padding: 25px 100px 25px 90px
+  position: relative
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+  color: rgba(0, 0, 0, 0.75)
+  text-decoration: none
+  font-size: 24px
+  font-weight: bold
+  padding-left: 25px
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(209, 209, 209, 0)), to(rgba(0, 0, 0, 0.1)))
+  background-image: -moz-linear-gradient(270deg, rgba(209, 209, 209, 0) 0%, rgba(0, 0, 0, 0.1) 100%)
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(0, 0, 0, 0.05)
+  border: 0
+
+section[role=articles] ul li a small, article header small
+  display: block
+  font-size: 16px
+  font-weight: normal
+  font-family: Georgia, serif
+  font-style: italic
+
+section[role=articles] ul li a time, article header time
+  position: absolute
+  top: 25px
+  right: 25px
+  text-align: right
+  color: rgba(0, 0, 0, 0.5)
+  font-weight: normal
+
+section[role=articles] ul li a time
+  display: none
+  span
+    display: block
+    font-size: 16px
+
+article header time span
+  display: block
+  font-size: 16px
+
+section[role=articles] ul li
+  a
+    &:hover, &:focus
+      color: #000
+      background: rgba(255, 255, 255, 0.5)
+  &:last-of-type a
+    border: 0
+  img
+    width: 50px
+    border-radius: 3px
+    position: relative
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 1), 0 1px 0 rgba(0, 0, 0, 0.05) inset
+    position: absolute
+    top: 25px
+    left: 25px
+
+article header a
+  color: rgba(0, 0, 0, 0.75)
+  text-decoration: none
+  &:hover, &:focus
+    color: #000
+
+.body
+  padding: 25px 25px 0
+  font-family: Georgia, serif
+  margin: 0 -1px
+  p
+    margin-bottom: 25px
+  h2
+    font-family: Helvetica Neue, Arial
+    margin-bottom: 25px
+    font-size: 18px
+  h3
+    font-family: Helvetica Neue, Arial
+    margin-bottom: 25px
+    font-size: 18px
+    font-size: 14px
+    text-transform: uppercase
+  code
+    background: rgba(0, 0, 0, 0.05)
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 1), 0 1px 1px rgba(0, 0, 0, 0.1) inset
+    font-family: Monaco, monospace
+    font-size: 12px
+    line-height: 20px
+    padding: 3px 5px
+    border-radius: 3px
+  pre code
+    padding: 25px
+    margin: 25px -25px
+    display: block
+    border-radius: 0
+  .footnotes
+    margin: 0 -25px 0
+    padding: 25px 25px 10px
+    background: rgba(0, 0, 0, 0.05)
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset
+    font-size: 14px
+    p
+      margin-bottom: 10px
+  ol li
+    list-style: decimal
+    margin-left: 20px
+  ul li
+    list-style: disc
+    margin-left: 20px
+  ol, ul
+    margin-bottom: 25px
+  .footnotes ol
+    margin: 0
+  .footnote
+    position: relative
+    top: -7px
+    font-weight: bold
+    font-family: Helvetica Neue, Arial, sans-serif
+    font-size: 14px
+
+footer
+  clear: both
+  a
+    display: block
+    height: 250px
+    text-indent: 150%
+    overflow: hidden
+    white-space: nowrap
+    background: url(/images/wallabee.png) no-repeat center center
+    &:hover, &:focus
+      background-image: url(/images/wallabee.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.1)))
+      background-image: url(/images/wallabee.png), -moz-linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%)
+    &:active
+      background-image: url(/images/wallabee.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.25)))
+      background-image: url(/images/wallabee.png), -moz-linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%)
+
+p.back
+  float: left
+  a
+    display: block
+    padding: 0 25px
+    color: rgba(0, 0, 0, 0.75)
+    text-decoration: none
+    font-weight: bold
+    width: 250px
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(209, 209, 209, 0)), to(rgba(0, 0, 0, 0.1)))
+    background-image: -moz-linear-gradient(270deg, rgba(209, 209, 209, 0) 0%, rgba(0, 0, 0, 0.1) 100%)
+    line-height: 50px
+    font-size: 18px
+    &:before
+      content: "← "
+    &:hover, &:focus
+      color: #000

@@ -1,0 +1,35 @@
+<section role="team" class="no">
+  <header>
+    <h1>Meet the Team</h1>
+  </header>
+  <ul class="grid">
+    {% for person in site.team %}
+      <li>
+        <a href="#team-{{ person.id }}">
+          <img src="images/{{person.id}}.jpg" alt="{{ person.name }}" />
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="default">Click on a Gowalla engineer for more info&hellip;</p>
+  <ul class="details">
+    {% for person in site.team %}
+      <li id="team-{{ person.id }}">
+        <img src="images/{{ person.id }}.jpg" alt="Adam Keys" />
+        <h2>{{ person.name }}</h2>
+        <div class="body">
+          <p>{{ person.description }}</p>
+        </div>
+        <dl>
+          <dt>Gowalla</dt>
+          <dd><a href="http://gowalla.com/{{ person.gowalla }}">Gowalla Passport</a></dd>
+          <dt>GitHub</dt>
+          <dd><a href="http://github.com/{{ person.github }}">Github</a></dd>
+          <dt>Twitter</dt>
+          <dd><a href="http://twitter.com/{{ person.twitter }}">Twitter</a></dd>
+        </dl>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

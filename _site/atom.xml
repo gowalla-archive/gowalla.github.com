@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Gowalla Engineering</title>
+ <link href="http://engineering.gowalla.com/atom.xml" rel="self"/>
+ <link href="http://engineering.gowalla.com"/>
+ <updated>2011-10-18T13:15:46-05:00</updated>
+ <id>http://engineering.gowalla.com</id>
+ <author>
+   <name>Gowalla Engineering</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>On AFNetworking (DRAFT)</title>
+   <link href="http://engineering.gowalla.com/2011/10/04/afnetworking/"/>
+   <updated>2011-10-04T00:00:00-05:00</updated>
+   <id>http://engineering.gowalla.com/2011/10/04/afnetworking</id>
+   <content type="html">&lt;p&gt;AFNetworking is a delightful networking library for iOS and Mac OS X. It's built on top of familiar Foundation network classes,  using &lt;code&gt;NSOperation&lt;/code&gt; for scheduling and concurrency, and blocks for convenience and flexibility. &lt;/p&gt;
+
+&lt;p&gt;// Some of the world's best apps are built with AFNetworking, including …, and of course, Gowalla. And more apps are using AFNetworking every day, especially as developers &lt;a href=&quot;http://allseeing-i.com/[request_release];&quot;&gt;transition away from ASIHTTPRequest&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;What follows is an overview of the design principles and guiding ideas behind AFNetworking. After reading this, you should have a solid understanding of how you can integrate it into your project.&lt;/p&gt;
+
+&lt;h2&gt;A Solid Foundation&lt;/h2&gt;
+
+&lt;p&gt;At the core of AFNetworking is &lt;code&gt;AFURLConnectionOperation&lt;/code&gt;, whose sole purpose is to make asynchronous network requests. Each operation manages a single request, from start to finish.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;objective-c
+NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&amp;quot;http://example.com&amp;quot;]];
+AFURLConnectionOperation *operation = [[[AFURLConnectionOperation alloc] initWithRequest:request] autorelease];
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;As the name implies, &lt;code&gt;AFURLConnectionOperation&lt;/code&gt; communicates over an &lt;code&gt;NSURLConnection&lt;/code&gt;. Also implied by its name, &lt;code&gt;AFURLConnectionOperation&lt;/code&gt; is a subclass of &lt;code&gt;NSOperation&lt;/code&gt;. In combination, what we get is something that can execute concurrently with other network operations, and--if the need arises--be cancelled at a moment's notice.&lt;/p&gt;
+
+&lt;p&gt;Streaming with &lt;code&gt;AFURLConnection&lt;/code&gt; is as easy as hooking up an &lt;code&gt;NSInputStream&lt;/code&gt; and / or &lt;code&gt;NSOutputStream&lt;/code&gt;, and tracking the progress of a file upload or download is just a matter of setting a callback block. Otherwise, you could simply get all of  the response data when the operation finishes, with &lt;code&gt;setCompletionBlock:&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;``` objective-c
+NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&amp;quot;http://localhost:8080/encode&amp;quot;]];&lt;/p&gt;
+
+&lt;p&gt;AFHTTPRequestOperation *operation = [[[AFHTTPRequestOperation alloc] initWithRequest:request] autorelease];
+operation.inputStream = [NSInputStream inputStreamWithFileAtPath:[[NSBundle mainBundle] pathForResource:@&amp;quot;large-image&amp;quot; ofType:@&amp;quot;tiff&amp;quot;]];
+operation.outputStream = [NSOutputStream outputStreamToMemory];
+```&lt;/p&gt;
+
+&lt;p&gt;Because of its self-contained, single-purpose design, &lt;code&gt;AFURLConnectionOperation&lt;/code&gt; is perfectly suited to be the foundation for the rest of AFNetworking. In fact, one could very well stop here and stick to the bare metal, so to speak. But if your app downloads images, or reads JSON or XML from a web API, AFNetworking has a lot more to offer.&lt;/p&gt;
+
+&lt;h2&gt;Sugary HTTP Goodness&lt;/h2&gt;
+
+&lt;p&gt;One step up from &lt;code&gt;AFURLConnectionOperation&lt;/code&gt; is &lt;code&gt;AFHTTPRequestOperation&lt;/code&gt;, which is specifically geared towards communicating over HTTP and HTTPS. &lt;code&gt;AFHTTPRequestOperation&lt;/code&gt; creates a distinction between successful and unsuccessful requests, where uccess or failure, is determined by whether the HTTP response status codes and MIME type are deemed acceptable.&lt;/p&gt;
+
+&lt;p&gt;However, what's most significant about &lt;code&gt;AFHTTPRequestOperation&lt;/code&gt; are the subclasses built on top of it: &lt;code&gt;AFJSONRequestOperat ion&lt;/code&gt;, &lt;code&gt;AFXMLRequestOperation&lt;/code&gt;, &lt;code&gt;AFPropertyListRequestOperation&lt;/code&gt;, and &lt;code&gt;AFImageRequestOperation&lt;/code&gt;. Each of these subclasses caters to particular types of content, so network operations return JSON objects or images rather than raw NSData.&lt;/p&gt;
+
+&lt;p&gt;For example, &lt;code&gt;AFJSONRequestOperation&lt;/code&gt; provides the class method &lt;code&gt;JSONRequestOperationWithRequest:success:failure&lt;/code&gt;. The returned operation automatically checks for a JSON MIME type and a status code in the 2XX range, and if those check out, returns a JSON object parsed from the response data in a callback block.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;objective-c
+NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&amp;quot;https://gowalla.com/users/mattt.json&amp;quot;]];
+AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    NSLog(@&amp;quot;Name: %@ %@&amp;quot;, [JSON valueForKeyPath:@&amp;quot;first_name&amp;quot;], [JSON valueForKeyPath:@&amp;quot;last_name&amp;quot;]);
+} failure:nil];
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;JSON (using JSONKit, or NSJSONSerializer when available), XML (using &lt;code&gt;NSXMLParser&lt;/code&gt;, or &lt;code&gt;NSXMLDocument&lt;/code&gt; on OS X), Plist (deserializing directly into Foundation objects), and UIImage / NSImage--AFNetworking includes support for all of these out of the box, so you're ready for pretty much anything the web can throw at you.&lt;/p&gt;
+
+&lt;h2&gt;GET some /REST&lt;/h2&gt;
+
+&lt;p&gt;While we're on the subject of the web, let's talk about a typical iOS / Mac application: Chances are, if an application does any sort of networking, it's done interfacing with a particular web API. Perhaps even several. &lt;/p&gt;
+
+&lt;p&gt;Enter &lt;code&gt;AFHTTPClient&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;AFHTTPClient&lt;/code&gt; encapsulates API details, such as its base URL, authentication credentials, and common HTTP headers, like user-agent or API key. Using this information, &lt;code&gt;AFHTTPClient&lt;/code&gt; constructs &lt;code&gt;NSMutableURLRequest&lt;/code&gt; objects, which can be used in any manner of &lt;code&gt;AFHTTPRequestOperation&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;objective-c
+[[AFGowallaAPIClient sharedClient] getPath:@&amp;quot;/spots/9223&amp;quot; parameters:nil success:^(id response) {
+    NSLog(@&amp;quot;Name: %@&amp;quot;, [response valueForKeyPath:@&amp;quot;name&amp;quot;]);
+    NSLog(@&amp;quot;Address: %@&amp;quot;, [response valueForKeyPath:@&amp;quot;address.street_address&amp;quot;]);
+} failure:nil];
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Magic When You Want It…&lt;/h3&gt;
+
+&lt;p&gt;As if that weren't enough, &lt;code&gt;AFHTTPClient&lt;/code&gt; can even automatically detect the correct kind of operation to use for a particular request. For example, a request with a &lt;code&gt;.json&lt;/code&gt; extension would be use &lt;code&gt;AFJSONRequestOperation&lt;/code&gt;, whereas a request with the &lt;code&gt;Accept&lt;/code&gt; header set to &lt;code&gt;application/xml&lt;/code&gt; would use &lt;code&gt;AFXMLRequestOperation&lt;/code&gt;. (See the &lt;a href=&quot;http://gowalla.github.com/AFNetworking/Protocols/AFHTTPClientOperation.html&quot;&gt;&lt;code&gt;AFRestClientOperation&lt;/code&gt; protocol&lt;/a&gt; for more details).&lt;/p&gt;
+
+&lt;h3&gt;…But Not When You Don't&lt;/h3&gt;
+
+&lt;p&gt;Magic isn't for everyone all of the time. In the aforementioned case, all you would need to do is override &lt;code&gt;AFHTTPClient -requestWithMethod:path:parameters:&lt;/code&gt;, and &lt;em&gt;poof&lt;/em&gt;, like magic… the magic is gone!&lt;/p&gt;
+
+&lt;h2&gt;Image is Everything&lt;/h2&gt;
+
+&lt;p&gt;The final piece of AFNetworking has to do with image loading. You met &lt;code&gt;AFImageRequestOperation&lt;/code&gt; earlier, along with its &lt;code&gt;AFHTTPRequestOperation&lt;/code&gt; brethren, but that was only part of the larger picture.&lt;/p&gt;
+
+&lt;p&gt;On iOS, AFNetworking adds category methods on &lt;code&gt;UIImageView&lt;/code&gt;, which make asynchronous image loading ridiculously easy. Observe:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;obj-c
+[imageView setImageWithURL:imageURL];
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Not only is that easy, but it's unbelievably fast. On a decent WiFi connection, table view cell images will load as fast as you scroll!&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;AFImageRequestOperation&lt;/code&gt; can even make 3G or EDGE connection feel downright snappy. Remember that part about being able to cancel an &lt;code&gt;AFURLConnectionOperation&lt;/code&gt;? This turns out to be especially useful for image loading. As table view cells are recycled, for instance, setting a new image URL will cancel the previous request.&lt;/p&gt;
+
+&lt;h2&gt;Go Forth, And Network&lt;/h2&gt;
+
+&lt;p&gt;Thus concludes our whirlwind tour of AFNetworking. Hopefully you'll have come away from this emboldened and excited to give AFNetworking a try.&lt;/p&gt;
+
+&lt;p&gt;Looking for a place to start? Check out the &lt;a href=&quot;https://github.com/gowalla/AFNetworking/blob/master/README.md&quot;&gt;README&lt;/a&gt; for some really useful code samples. AFNetworking also has some &lt;a href=&quot;http://gowalla.github.com/AFNetworking/&quot;&gt;great documentation&lt;/a&gt; (if I don't say so myself)&lt;/p&gt;
+
+&lt;h2&gt;Colophon&lt;/h2&gt;
+
+&lt;p&gt;AFNetworking was created by &lt;a href=&quot;http://github.com/sco/&quot;&gt;Scott Raymond&lt;/a&gt; and &lt;a href=&quot;http://github.com/mattt/&quot;&gt;Mattt Thompson&lt;/a&gt; during the development of Gowalla for iPhone 4.0. It's the culmination of months of work by the authors and collaboration with dozens of open source contributors.&lt;/p&gt;
+
+&lt;p&gt;AFNetworking was open-sourced in June of 2011, and of this writing, just 4 months later, reached 1000 watchers on GitHub.&lt;/p&gt;
+
+&lt;p&gt;If you'd like to contribute to AFNetworking, we would most certainly appreciate the help. Open an issue on GitHub, or if you feel so inclined, create a patch and submit a pull request. Also, if you are a a native non-English speaker, we'd love to have translations of documentation available in other languages.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
