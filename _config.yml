@@ -9,7 +9,7 @@ team:
   -
     id: ak
     name: "Adam Keys"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "Telling a joke and/or making Gowalla code."
     gowalla: therealadam
     github: therealadam
     twitter: therealadam
@@ -17,7 +17,7 @@ team:
   -
     id: jc
     name: "John Critz"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "Platform developer and NERF expert."
     gowalla: jc
     github: critzjm
     twitter: critzjm
@@ -25,7 +25,7 @@ team:
   -
     id: ad
     name: "Andrew Dupont"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "JavaScript sniper. Sugar-Free Red Bull addict. Gowalla developer."
     gowalla: savetheclocktower
     github: savetheclocktower
     twitter: andrewdupont
@@ -33,7 +33,7 @@ team:
   -
     id: am
     name: "Adam McManus"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "I like to ride my bike. Lots."
     gowalla: amcmanus
     github: amcmanus
     twitter: amcmanus
@@ -49,7 +49,7 @@ team:
   -
     id: rs
     name: "Richard Schneeman"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "A location based ruby hacker working for Gowalla."
     gowalla: schneems
     github: schneems
     twitter: schneems
@@ -57,7 +57,7 @@ team:
   -
     id: kl
     name: "Kevin Lord"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "All around tech geek, movie lover, and iOS Developer / Operations Engineer @ Gowalla."
     gowalla: lordkev
     github: lordkev
     twitter: lordkev
@@ -65,7 +65,7 @@ team:
   -
     id: sco
     name: "Scott Raymond"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "Co-founder & CTO of Gowalla. Ruby, Cocoa, & JavaScript developer. Author. Indoorsman."
     gowalla: sco
     github: sco
     twitter: sco
@@ -73,7 +73,7 @@ team:
   -
     id: soop
     name: "Adam Michela"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "I design at Gowalla, ride bicycles, and raise a couple of awesome kids. How about you?"
     gowalla: soopa
     github: soopa
     twitter: soopa
@@ -89,7 +89,7 @@ team:
   -
     id: pm
     name: "Philip McAllister"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "Android developer @ Gowalla."
     gowalla: mcalliph
     github: mcalliph
     twitter: mcalliph
@@ -97,7 +97,7 @@ team:
   -
     id: tp
     name: "Thorben Pimke"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "BlackBerry Developer at Gowalla."
     gowalla: tprimke
     github: thorbenprimke
     twitter: tprimke
@@ -105,7 +105,7 @@ team:
   -
     id: dy
     name: "Drew Yeaton"
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    description: "Designer at Gowalla. I have 4 limbs dedicated to the eventual procreation of a progenitor species. I eat on a daily basis and play piano nightly."
     gowalla: xeeton
     github: drewyeaton
     twitter: xeeton
