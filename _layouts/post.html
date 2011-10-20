@@ -1,34 +1,37 @@
 ---
 layout: default
 ---
+
+{% include functions/author.liquid %}
+
 <article>
-	<header>
-		<h2><a href="{{ url }}">{{ page.title }}</a></h2>
-		<small>Written by {{ page.author.name }}</small>
-		<time datetime="{{ post.date }}">
-		  {{page.date | date: "%b"}} {{ page.date | date: "%e" }}
-		  <span class="year">{{page.date | date: "%Y"}}</span>
-		</time>
-	</header>
-	<div class="body">
-	  {{ content }}
-	</div>
+  <header>
+    <h2><a href="{{ url }}">{{ page.title }}</a></h2>
+    <small>Written by {{ author.name }}</small>
+    <time datetime="{{ post.date }}">
+      {{page.date | date: "%b"}} {{ page.date | date: "%e" }}
+      <span class="year">{{page.date | date: "%Y"}}</span>
+    </time>
+  </header>
+  <div class="body">
+    {{ content }}
+  </div>
 </article>
 
 <section role="about">
-	<header>
-		<h1>About {{ page.author.name }}</h1>
-	</header>
-	<div class="body">
-		<img src="/images/{{ page.author.id }}.jpg" alt="{{ page.author.name }}" />
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu neque eu tortor ultrices malesuada cursus quis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	</div>
-	<dl>
-		<dt>Gowalla</dt>
-		<dd><a href="http://gowalla.com/">Gowalla Passport</a></dd>
-		<dt>GitHub</dt>
-		<dd><a href="http://github.com/">Github</a></dd>
-		<dt>Twitter</dt>
-		<dd><a href="http://twitter.com/">Twitter</a></dd>
-	</dl>			
+  <header>
+    <h1>About {{ author.name }}</h1>
+  </header>
+  <div class="body">
+    <img src="/images/{{ author.id }}.jpg" alt="{{ author.name }}" />
+    <p>{{ author.description }}</p>
+  </div>
+  <dl>
+    <dt>Gowalla</dt>
+    <dd><a href="http://gowalla.com/{{ author.gowalla }}">Gowalla Passport</a></dd>
+    <dt>GitHub</dt>
+    <dd><a href="http://github.com/{{ author.github }}">Github</a></dd>
+    <dt>Twitter</dt>
+    <dd><a href="http://twitter.com/{{ author.twitter }}">Twitter</a></dd>
+  </dl>
 </section>

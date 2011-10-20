@@ -10,11 +10,13 @@ layout: default
   </header>
   <ul>
     {% for post in site.posts %}
+      {% include functions/author.liquid %}
+    
       <li id="{{ post.id }}" class="post latest">
         <a href="{{ post.url }}">
           <h2>{{ post.title }}</h2>
-          <img src="/images/{{ post.author.id }}.jpg" alt="{{ post.author.name }}" />
-          <small>Written by {{ post.author.name }}</small>
+          <img src="/images/{{ author.id }}.jpg" alt="{{ author.name }}" />
+          <small>Written by {{ author.name }}</small>
           <time class="pubdate" datetime="{{ post.date }}" pubdate>{{ post.date | date_to_string }}</time>
         </a>
       </li>
