@@ -1,0 +1,10 @@
+{% comment %}
+# Replaces page or post value for author with the full object as defined in _config.yml
+{% endcomment %}
+
+{% assign author = nil %}
+{% for person in site.team %}
+  {% if person.id == page.author or person.id == post.author %}
+    {% assign author = person %}
+  {% endif %}
+{% endfor %}
