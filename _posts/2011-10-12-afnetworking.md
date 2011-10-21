@@ -35,9 +35,9 @@ Because of its self-contained, single-purpose design, `AFURLConnectionOperation`
 
 ## Consuming JSON, XML, Images, and Property Lists
 
-One step up from `AFURLConnectionOperation` is `AFHTTPRequestOperation`, which is specifically geared towards communicating over HTTP and HTTPS. `AFHTTPRequestOperation` creates a distinction between successful and unsuccessful requests, where uccess or failure, is determined by whether the HTTP response status codes and MIME type are deemed acceptable.
+One step up from `AFURLConnectionOperation` is `AFHTTPRequestOperation`, which is specifically geared towards communicating over HTTP and HTTPS. `AFHTTPRequestOperation` creates a distinction between successful and unsuccessful requests, where success or failure, is determined by whether the HTTP response status codes and MIME type are deemed acceptable.
 
-However, what's most significant about `AFHTTPRequestOperation` are the subclasses built on top of it: `AFJSONRequestOperat ion`, `AFXMLRequestOperation`, `AFPropertyListRequestOperation`, and `AFImageRequestOperation`. Each of these subclasses caters to particular types of content, so network operations return JSON objects or images rather than raw NSData.
+However, what's most significant about `AFHTTPRequestOperation` are the subclasses built on top of it: `AFJSONRequestOperation`, `AFXMLRequestOperation`, `AFPropertyListRequestOperation`, and `AFImageRequestOperation`. Each of these subclasses caters to particular types of content, so network operations return JSON objects or images rather than raw NSData.
 
 For example, `AFJSONRequestOperation` provides the class method `JSONRequestOperationWithRequest:success:failure`. The returned operation automatically checks for a JSON MIME type and a status code in the 2XX range, and if those check out, returns a JSON object parsed from the response data in a callback block.
 
