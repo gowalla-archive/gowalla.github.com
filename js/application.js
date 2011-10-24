@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$("a[href=#team-ak]").click(showAK);
 	$("a[href=#team-jc]").click(showJC);
-	$("a[href=#team-ad]").click(showAD);
+	$("a[href=#team-apd]").click(showAD);
 	$("a[href=#team-am]").click(showAM);
 	$("a[href=#team-mt]").click(showMT);
 	$("a[href=#team-rs]").click(showRS);
@@ -28,7 +28,7 @@ function showJC() {
 
 function showAD() {
 	$("section[role=team]").removeClass();
-	$("section[role=team]").addClass("team-ad");
+	$("section[role=team]").addClass("team-apd");
 	return false;
 }
 
