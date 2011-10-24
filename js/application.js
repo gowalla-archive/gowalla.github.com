@@ -1,7 +1,13 @@
 $(document).ready(function() {
   var jqTeamContainer = $("section[role=team]");
-  $("section[role='team'] ul.grid a").click(function (evt) {
+  jqTeamContainer.find("ul.grid a").click(function (evt) {
     evt.preventDefault();
-    jqTeamContainer.removeClass().addClass(this.href.replace(/^.*?#/, ''));
+    var personClass = this.href.replace(/^.*?#/, '');
+    if (jqTeamContainer.hasClass(personClass)) {
+      jqTeamContainer.removeClass();
+    }
+    else {
+      jqTeamContainer.removeClass().addClass(personClass);
+    }
   });
 });
