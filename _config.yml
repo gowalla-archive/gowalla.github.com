@@ -9,7 +9,7 @@ team:
   -
     id: ak
     name: "Adam Keys"
-    description: "Telling a joke and/or making Gowalla code."
+    description: "API &amp; Platform Developer. Telling a joke and/or making Gowalla code."
     gowalla: therealadam
     github: therealadam
     twitter: therealadam
@@ -17,7 +17,7 @@ team:
   -
     id: jc
     name: "John Critz"
-    description: "Platform developer and NERF expert."
+    description: "Platform Developer. NERF and explosions expert."
     gowalla: jc
     github: critzjm
     twitter: critzjm
@@ -25,7 +25,7 @@ team:
   -
     id: ad
     name: "Andrew Dupont"
-    description: "JavaScript sniper. Sugar-Free Red Bull addict. Gowalla developer."
+    description: "Platform &amp; Web Developer. JavaScript sniper. Sugar-Free Red Bull addict. Gowalla developer."
     gowalla: savetheclocktower
     github: savetheclocktower
     twitter: andrewdupont
@@ -33,7 +33,7 @@ team:
   -
     id: am
     name: "Adam McManus"
-    description: "I like to ride my bike. Lots."
+    description: "Operations Engineer. I like to ride my bike. Lots."
     gowalla: amcmanus
     github: amcmanus
     twitter: amcmanus
@@ -41,7 +41,7 @@ team:
   -
     id: mt
     name: "Mattt Thompson"
-    description: "Hacker from the Rustbelt, living in Austin, TX. iOS and Ruby Developer at Gowalla"
+    description: "iOS Developer. Hacker from the Rustbelt, living in Austin, TX. iOS and Ruby Developer at Gowalla"
     gowalla: mattt
     github: mattt
     twitter: mattt
@@ -49,7 +49,7 @@ team:
   -
     id: rs
     name: "Richard Schneeman"
-    description: "A location based ruby hacker working for Gowalla."
+    description: "Platform &amp; Web Developer. A location based ruby hacker working for Gowalla."
     gowalla: schneems
     github: schneems
     twitter: schneems
@@ -57,7 +57,7 @@ team:
   -
     id: kl
     name: "Kevin Lord"
-    description: "All around tech geek, movie lover, and iOS Developer / Operations Engineer @ Gowalla."
+    description: "iOS Developer, Operations Engineer. All around tech geek, movie lover."
     gowalla: lordkev
     github: lordkev
     twitter: lordkev
@@ -65,7 +65,7 @@ team:
   -
     id: sco
     name: "Scott Raymond"
-    description: "Co-founder & CTO of Gowalla. Ruby, Cocoa, & JavaScript developer. Author. Indoorsman."
+    description: "Co-founder & CTO, iOS Developer. Ruby, Cocoa, & JavaScript developer. Author. Indoorsman."
     gowalla: sco
     github: sco
     twitter: sco
@@ -73,7 +73,7 @@ team:
   -
     id: soop
     name: "Adam Michela"
-    description: "I design at Gowalla, ride bicycles, and raise a couple of awesome kids. How about you?"
+    description: "Designer, Web Developer. I ride bicycles, and raise a couple of awesome kids. How about you?"
     gowalla: soopa
     github: soopa
     twitter: soopa
@@ -81,7 +81,7 @@ team:
   -
     id: bf
     name: "Brad Fults"
-    description: "Ruby and Rails platform developer with a background in JavaScript and front-end web development. Prefers simplicity, directness, red wine, fast cars and is healthily obsessed with quality."
+    description: "Platform Developer. Background in JavaScript and front-end web development. Prefers simplicity, directness, red wine, fast cars and is healthily obsessed with quality."
     gowalla: h3h
     github: h3h
     twitter: h3h
@@ -89,15 +89,15 @@ team:
   -
     id: pm
     name: "Philip McAllister"
-    description: "Android developer @ Gowalla."
+    description: "Android Developer."
     gowalla: mcalliph
     github: mcalliph
     twitter: mcalliph
 
   -
     id: tp
-    name: "Thorben Pimke"
-    description: "BlackBerry Developer at Gowalla."
+    name: "Thorben Primke"
+    description: "BlackBerry Developer."
     gowalla: tprimke
     github: thorbenprimke
     twitter: tprimke
@@ -105,7 +105,7 @@ team:
   -
     id: dy
     name: "Drew Yeaton"
-    description: "Designer at Gowalla. I have 4 limbs dedicated to the eventual procreation of a progenitor species. I eat on a daily basis and play piano nightly."
+    description: "Designer &amp; Mobile Developer. I have 4 limbs dedicated to the eventual procreation of a progenitor species. I eat on a daily basis and play piano nightly."
     gowalla: xeeton
     github: drewyeaton
     twitter: xeeton
