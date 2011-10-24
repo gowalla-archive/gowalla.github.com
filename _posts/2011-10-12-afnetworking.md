@@ -14,21 +14,17 @@ What follows is an overview of the design principles and guiding ideas behind AF
 
 At the core of AFNetworking is [`AFURLConnectionOperation`](http://engineering.gowalla.com/AFNetworking/Classes/AFURLConnectionOperation.html), whose sole purpose is to make asynchronous network requests. Each operation manages a single request from start to finish.
 
-```
-NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://example.com"]];
-AFURLConnectionOperation *operation = [[[AFURLConnectionOperation alloc] initWithRequest:request] autorelease];
-```
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://example.com"]];
+    AFURLConnectionOperation *operation = [[[AFURLConnectionOperation alloc] initWithRequest:request] autorelease];
 
 As the name implies, `AFURLConnectionOperation` communicates over an `NSURLConnection`. Also implied by its name, `AFURLConnectionOperation` is a subclass of `NSOperation`. In combination, we get something that can execute concurrently with other network operations, and--if the need arises--be cancelled at a moment's notice.
 
 Streaming with `AFURLConnection` is as easy as hooking up an `NSInputStream` and / or `NSOutputStream`, and tracking the progress of a file upload or download is just a matter of setting a callback block. Otherwise, you can simply get all of the response data when the operation finishes, with `setCompletionBlock:`.
 
-```
-NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/encode"]];
-AFHTTPRequestOperation *operation = [[[AFHTTPRequestOperation alloc] initWithRequest:request] autorelease];
-operation.inputStream = [NSInputStream inputStreamWithFileAtPath:[[NSBundle mainBundle] pathForResource:@"large-image" ofType:@"tiff"]];
-operation.outputStream = [NSOutputStream outputStreamToMemory];
-```
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/encode"]];
+    AFHTTPRequestOperation *operation = [[[AFHTTPRequestOperation alloc] initWithRequest:request] autorelease];
+    operation.inputStream = [NSInputStream inputStreamWithFileAtPath:[[NSBundle mainBundle] pathForResource:@"large-image" ofType:@"tiff"]];
+    operation.outputStream = [NSOutputStream outputStreamToMemory];
 
 Because of its self-contained, single-purpose design, you could very well stop at `AFURLConnectionOperation` and stick to the bare metal, so to speak. But if your app downloads images, or reads JSON or XML from a web API, AFNetworking has much more to offer.
 
@@ -40,12 +36,10 @@ But what's most significant about `AFHTTPRequestOperation` are the subclasses bu
 
 For example, `AFJSONRequestOperation` provides the class method `JSONRequestOperationWithRequest:success:failure`. The returned operation automatically checks for a JSON MIME type and a status code in the 2XX range; if those check out, it returns a JSON object parsed from the response data in a callback block.
 
-```
-NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://gowalla.com/users/mattt.json"]];
-AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-    NSLog(@"Name: %@ %@", [JSON valueForKeyPath:@"first_name"], [JSON valueForKeyPath:@"last_name"]);
-} failure:nil];
-```
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://gowalla.com/users/mattt.json"]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"Name: %@ %@", [JSON valueForKeyPath:@"first_name"], [JSON valueForKeyPath:@"last_name"]);
+    } failure:nil];
 
 JSON (`NSJSONSerializer` when available and falling back to [JSONKit](https://github.com/johnezang/JSONKit)), XML (using `NSXMLParser`, or `NSXMLDocument` on OS X), Plist (deserializing directly into Foundation objects), and images (with `UIImage` or `NSImage`)--AFNetworking includes support for all of these out of the box, so you're ready for pretty much anything the web can throw at you.
 
@@ -57,12 +51,10 @@ Enter [`AFHTTPClient`](http://engineering.gowalla.com/AFNetworking/Classes/AFHTT
 
 `AFHTTPClient` encapsulates the details of talking to a single API: a base URL, authentication credentials, and HTTP headers. Using this information, `AFHTTPClient` constructs `NSMutableURLRequest` objects that can be used in any manner of `AFHTTPRequestOperation`.
 
-```
-[[AFGowallaAPIClient sharedClient] getPath:@"/spots/9223" parameters:nil success:^(id response) {
-    NSLog(@"Name: %@", [response valueForKeyPath:@"name"]);
-    NSLog(@"Address: %@", [response valueForKeyPath:@"address.street_address"]);
-} failure:nil];
-```
+    [[AFGowallaAPIClient sharedClient] getPath:@"/spots/9223" parameters:nil success:^(id response) {
+        NSLog(@"Name: %@", [response valueForKeyPath:@"name"]);
+        NSLog(@"Address: %@", [response valueForKeyPath:@"address.street_address"]);
+    } failure:nil];
 
 ### Magic When You Want It…
 
@@ -78,9 +70,7 @@ The final piece of AFNetworking has to do with image loading. You met [`AFImageR
 
 On iOS, AFNetworking adds category methods on `UIImageView` that make asynchronous image loading ridiculously easy. Observe:
 
-``` obj-c
-[imageView setImageWithURL:imageURL];
-```
+    [imageView setImageWithURL:imageURL];
 
 Not only is that easy--it's unbelievably fast. On a decent WiFi connection, table view cell images will load as fast as you scroll!
 
