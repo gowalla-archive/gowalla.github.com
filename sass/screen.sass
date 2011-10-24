@@ -130,6 +130,8 @@ section
       .body
         padding: 0
         p
+          margin: 10px 0 0 0
+          min-height: 75px
           padding: 0
       dl
         position: absolute
@@ -199,6 +201,34 @@ section
   &[role=articles]
     float: right
     width: 623px
+  &[role=opensource]
+    float: left
+    width: 298px
+    ul
+      margin: 0 -1px -1px
+    li
+      float: left
+      width: 150px
+      text-align: center
+      border-top: 1px solid rgba(0, 0, 0, .1)
+      &:nth-child(1),
+      &:nth-child(2)
+        border-top: 0
+      a
+        display: block
+        padding: 135px 0 15px
+        position: relative
+        color: rgba(0, 0, 0, .75)
+        text-decoration: none
+        &:hover, &:focus
+          color: #000
+          background: rgba(255, 255, 255, .5)
+        img
+          position: absolute
+          top: 25px
+          left: 25px
+      &:nth-child(n+1) a
+        border-right: 1px solid rgba(0, 0, 0, .1)
 
 article
   float: right

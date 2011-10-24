@@ -4,6 +4,8 @@ layout: default
 
 {% include team.html %}
 
+{% include sidebar.html %}
+
 <section role="articles">
   <header>
     <h1>Articles</h1>
@@ -11,7 +13,7 @@ layout: default
   <ul>
     {% for post in site.posts %}
       {% include functions/author.liquid %}
-    
+
       <li id="{{ post.id }}" class="post latest">
         <a href="{{ post.url }}">
           <h2>{{ post.title }}</h2>
