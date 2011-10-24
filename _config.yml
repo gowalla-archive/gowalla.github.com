@@ -1,6 +1,8 @@
-markdown: redcarpet
 permalink: pretty
+markdown: redcarpet
 pygments: true
+
+exclude: ["CNAME", "README", "Gemfile", "Gemfile.lock", "Procfile", "config.rb", "sass"]
 
 title: Gowalla Engineering
 url: http://engineering.gowalla.com
