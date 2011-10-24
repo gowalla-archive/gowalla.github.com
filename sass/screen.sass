@@ -197,6 +197,24 @@ section
   &[role=articles]
     float: right
     width: 623px
+  &[role=related]
+    float: left
+    width: 298px
+    ul li
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+      list-style-type: none
+      margin: 0
+      &:last-child
+        border-bottom: none
+      a
+        color: rgba(0, 0, 0, .75)
+        display: block
+        font-size: 90%
+        font-weight: bold
+        padding: 6px 8px
+        text-decoration: none
+        &:hover
+          background: rgba(255, 255, 255, .5)
   &[role=opensource]
     float: left
     width: 298px
