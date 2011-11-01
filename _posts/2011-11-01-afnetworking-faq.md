@@ -3,12 +3,12 @@ layout: post
 title: "AFNetworking FAQ"
 author: mt
 date: 2011-11-01
-published: false
+published: true
 ---
 
-In the course of developing and maintaining [AFNetworking](https://github.com/gowalla/AFNetworking), I've come across all sorts of questions about it. It's been my sincere pleasure to answer as many of those as I can, and I want to thank everyone who has reached out; it's been unbelievably helpful to me in developing the library.
+In the course of developing and maintaining [AFNetworking](https://github.com/gowalla/AFNetworking), I've made a point to seek out and answer questions from those who were just getting started with the library. It's been my sincere pleasure to answer as many of those as I can, and I want to thank everyone who has reached out; it's been unbelievably helpful to me in developing the library.
 
-I have noticed that a few questions come up with some frequency.  One may go so far as to call them "Frequently Asked Questions". Anyway, I thought it might be useful to answer these all in one place, for the benefit of anyone else who might have these same questions:
+Among those questions, a handful have come up with relative frequency--one may go so far as to call them "Frequently Asked Questions". Anyway, I thought it might be useful to answer these all in one place<a href="#footnote-1"><sup>1</sup></a>, for the benefit of anyone else who might have these same questions:
 
 ## How do I upload a file?
 
@@ -58,8 +58,22 @@ If you wanted to update a progress bar, you could set the respective progress bl
 
 All request operations have the `inputStream` and `outputStream` property. To download data as its sent from the server, set the `outputStream` property with an `NSOutputStream` object,  To upload the contents of a file, for instance, by streaming it into the body of a request, set `inputStream` with an `NSInputStream` object.
 
+## Is AFNetworking compatible with [ARC](http://clang.llvm.org/docs/AutomaticReferenceCounting.html)?
+
+Yes, projects with Automatic Reference Counting (ARC) enabled can use AFNetworking. However, since AFNetworking's codebase does not yet use ARC, you will need to add compiler flags to get everything working. In Xcode, go to your active target and select the "Build Phases" tab. In the "Compiler Flags" column, set `-fno-objc-arc` for each of the AFNetworking source files. 
+
+## When will AFNetworking transition to ARC?
+
+We are holding off on transitioning the codebase to ARC until a majority of developers have made the transition themselves. This decision is made in the hopes of not only maximizing compatibility of the library, but to keep the codebase accessible to programmers who are not yet familiar with ARC. Rather than duplicate work by branching, or complicating matters with pre-processor macros, AFNetworking will make the transition all at once, and will be tagged as a new major release. We expect to make this transition to ARC sometime in early 2012.
+
 ## What's with the "AF" prefix?
 
 The "AF" in AFNetworking stands for "Alamofire", which is the former name of the company known today as Gowalla. Alamofire Inc. was named after the [Alamo Fire](http://aggie-horticulture.tamu.edu/wildseed/alamofire.html), a hybrid of [the Bluebonnet](http://en.wikipedia.org/wiki/Bluebonnet_(plant))--Texas' state flower.
 
 Using AF is also a nod to the "NS" prefix used in Apple's Foundation framework, which harkens back to its [NeXTSTEP](http://en.wikipedia.org/wiki/NeXTSTEP) roots.
+
+---
+
+If you have any questions about AFNetworking, don't hesitate to get in touch (our contact information can be found on the [README](https://github.com/gowalla/AFNetworking/blob/master/README.md)).
+
+<sup id="footnote-1">1</sup> Well, two places, I guess. For the most up-to-date version of this FAQ, check out [the AFNetworking Wiki](https://github.com/gowalla/AFNetworking/wiki/AFNetworking-FAQ).
