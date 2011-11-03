@@ -60,11 +60,11 @@ All request operations have the `inputStream` and `outputStream` property. To do
 
 ## Is AFNetworking compatible with [ARC](http://clang.llvm.org/docs/AutomaticReferenceCounting.html)?
 
-Yes, projects with Automatic Reference Counting (ARC) enabled can use AFNetworking. However, since AFNetworking's codebase does not yet use ARC, you will need to add compiler flags to get everything working. In Xcode, go to your active target and select the "Build Phases" tab. In the "Compiler Flags" column, set `-fno-objc-arc` for each of the AFNetworking source files. 
+Yes--projects with Automatic Reference Counting (ARC) enabled can use AFNetworking. However, since AFNetworking's codebase does not yet use ARC, you will need to add compiler flags to get everything working. In Xcode, go to your active target and select the "Build Phases" tab. In the "Compiler Flags" column, set `-fno-objc-arc` for each of the AFNetworking source files.
 
 ## When will AFNetworking transition to ARC?
 
-We are holding off on transitioning the codebase to ARC until a majority of developers have made the transition themselves. This decision is made in the hopes of not only maximizing compatibility of the library, but to keep the codebase accessible to programmers who are not yet familiar with ARC. Rather than duplicate work by branching, or complicating matters with pre-processor macros, AFNetworking will make the transition all at once, and will be tagged as a new major release. We expect to make this transition to ARC sometime in early 2012.
+We are holding off on transitioning the codebase to ARC until a majority of developers have made the switch themselves. This decision is made in the hopes of not only maximizing compatibility of the library, but to keep the codebase accessible to programmers who are not yet familiar with ARC. Rather than duplicating work across branching, or complicating matters with pre-processor macros, AFNetworking will make the transition all at once, which will be tagged as a new major release. We expect to make this transition sometime in early 2012.
 
 ## What's with the "AF" prefix?
 
