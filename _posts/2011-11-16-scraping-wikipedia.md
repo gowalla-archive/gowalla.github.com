@@ -3,7 +3,7 @@ layout: post
 title: "Scraping Wikipedia"
 author: bf
 date: 2011-11-16
-published: false
+published: true
 ---
 
 Here at Gowalla we use [Campfire](http://campfirenow.com/) extensively for
