@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "Scaling at Gowalla: Databases & NoSQL"
